@@ -129,7 +129,7 @@ class DefaultController extends \yii\base\Controller
         return $flipped;
     }
 
-    function _findString($string, $title, $pattern = '[^.]*\.')
+    function _findString($string, $title, $pattern = '(?:.*)\.')
     {
         preg_match("/$title:$pattern/", str_replace('*', '', $string), $matched);
         if (!empty($matched[0])) {
@@ -137,7 +137,7 @@ class DefaultController extends \yii\base\Controller
         }
     }
 
-    function _findElements($string, $title, $pattern = '[^.]*\.')
+    function _findElements($string, $title, $pattern = '(?:.*)\.')
     {
         $elementsString = $this->_findString($string, $title, $pattern);
         $elements = [];
